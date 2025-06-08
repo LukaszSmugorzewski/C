@@ -1,0 +1,39 @@
+========================================= if ====================================================
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+    int waga;
+    float wzrost;
+    printf("Podaj swoja wage (kg): ");
+    scanf("%d", &waga);
+    printf("Podaj swoj wzrost (m): ");
+    scanf("%f", &wzrost);
+    float BMI = waga / (wzrost * wzrost);
+    printf("Twoje BMI wynosi: %.2f\n", BMI);
+    if(BMI < 18.5)
+    {
+        printf("Niedowaga");
+    }
+    if(BMI >= 18.5 & BMI < 25)
+    {
+        printf("Waga prawidlowa");
+    }
+    if(BMI >= 25 & BMI < 30)
+    {
+        printf("Nadwaga");
+    }
+    if(BMI >= 30)
+    {
+        printf("Otylosc");
+    }
+
+
+    return 0;
+}
+
+
+=============================================================================================================
