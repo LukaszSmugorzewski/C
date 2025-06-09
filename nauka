@@ -36,4 +36,43 @@ int main()
 }
 
 
-=============================================================================================================
+=================================================DO WHILE============================================================
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int i = 0;
+int j = 0;
+int a = 0;
+
+int main()
+{
+     printf("Licznik liczb parzystych i nieparzystych\n");
+    do
+    {
+    printf("napisz swoje liczby do zliczenia: ");
+    scanf("%d", &a);
+    if(a < 0)
+    {
+    continue;
+    }
+    if(a == 0)
+    {
+    break;
+    }
+    if(a % 2 == 0)
+    {
+        i += 1;
+    }
+    else
+    {
+        j += 1;
+    }
+    }while(a != 0);
+
+    printf("Wpisałes 0, czyli zakonczyłes dzialanie programu\n");
+    printf("Suma liczb parzystych: %d\nSuma liczb nieparzystych: %d",i,j);
+    return 0;
+}
+
