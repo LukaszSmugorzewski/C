@@ -76,3 +76,79 @@ int main()
     return 0;
 }
 
+=========================================================funkcje=========================================
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int a;
+int i;
+char imie[50];
+
+void wczytywanie(float *o1,float *o2,float *o3)
+{
+    printf("pierwsza ocena: \n");
+    scanf("%f", o1);
+    printf("druga ocena: \n");
+    scanf("%f", o2);
+    printf("trzecia ocena: \n");
+    scanf("%f", o3);
+}
+
+void przypisywanie(float ocena)
+{
+    if(ocena < 2.0)
+    {
+        printf("Niedostateczny\n");
+    }
+    else if(ocena < 3.9)
+    {
+        printf("dostateczny\n");
+    }
+    else if(ocena < 4.9)
+    {
+        printf("dobry\n");
+    }
+    else if(ocena < 5.5)
+    {
+        printf("bardzo dobry\n");
+    }
+    else
+    {
+        printf("celujacy\n");
+    }
+}
+
+void srednia(float o1, float o2, float o3)
+{
+    float srednia = (o1 + o2 + o3)/ 3;
+    printf("srednia ocen: %.2f\n", srednia);
+}
+
+
+int main()
+{
+    printf("Napisz liczbe uczniow: \n");
+    scanf("%d", &a);
+    for(i = 0; i < a; i++)
+    {
+        printf("Podaj dane ucznia: \n");
+
+        printf("Imie: \n");
+        scanf("%s", imie);
+
+        float o1;
+        float o2;
+        float o3;
+        wczytywanie(&o1, &o2, &o3);
+
+        printf("Uczen: %s\n", imie);
+        srednia(o1, o2, o3);
+
+        float srednia_ocen = (o1 + o2 + o3) / 3;
+        przypisywanie(srednia_ocen);
+    }
+    return 0;
+}
+
