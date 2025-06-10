@@ -152,3 +152,81 @@ int main()
     return 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void dodawanie(float a, float b)
+{
+    float wynik = a + b;
+    printf("Wynik dodawania liczb %.2f i %.2f to: %.2f",a,b,wynik);
+}
+void odejmowanie(float a, float b)
+{
+    float wynik = a - b;
+    printf("Wynik odejmowania liczb %.2f i %.2f to: %.2f",a,b,wynik);
+}
+void mnozenie(float a, float b)
+{
+    float wynik = a * b;
+    printf("Wynik mnozenia liczb %.2f i %.2f to: %.2f",a,b,wynik);
+}
+void dzielenie(float a, float b)
+{
+    float wynik = a / b;
+    printf("Wynik dzielenia liczb %.2f i %.2f to: %.2f",a,b,wynik);
+}
+void wybranie(int a, float b, float c)
+{
+    if(a == 1)
+    {
+    dodawanie(b, c);
+    }
+    if(a == 2)
+    {
+    odejmowanie(b, c);
+    }
+    if(a == 3)
+    {
+    mnozenie(b, c);
+    }
+    if(a == 4)
+    {
+    dzielenie(b, c);
+    }
+
+}
+
+int main()
+{
+
+    float c;
+    float d;
+    int wybor;
+    printf("napisz dwie dowolne liczby:\n1. ");
+    scanf("%f", &c);
+    printf("2. ");
+    scanf("%f", &d);
+    printf("napisz co chcesz z nimi zrobic:\n1. dodawanie\n2. odejmowanie\n3. mnozenie\n4. dzielenie\n");
+    scanf("%d", &wybor);
+    wybranie(wybor, c, d);
+
+
+
+    return 0;
+}
+
