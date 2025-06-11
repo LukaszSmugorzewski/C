@@ -155,18 +155,6 @@ int main()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -230,3 +218,298 @@ int main()
     return 0;
 }
 
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+struct student{
+char imie[50];
+char nazwisko[100];
+int ocena;
+};
+
+void wczytaj(struct student *s, char a[], char b[], int c){
+strcpy(s->imie, a);
+strcpy(s->nazwisko, b);
+s->ocena = c;
+}
+
+int main(){
+    struct student damian;
+    char a[50];
+    char b[100];
+    int c;
+
+
+    printf("wpisz dane ucznie\nimie: ");
+    scanf("%s", a);
+    printf("nazwisko: ");
+    scanf("%s", b);
+    printf("ocena: ");
+    scanf("%d", &c);
+
+    wczytaj(&damian,a,b,c);
+    printf("%s %s uzyskal ocene %d",damian.imie,damian.nazwisko,damian.ocena);
+
+
+return 0;
+}
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+struct Book{
+char tytul[100];
+char autor[100];
+int strony;
+};
+
+void dodanie(struct Book *ksiazka){
+printf("Podaj tytul ksiazki: ");
+scanf("%s", ksiazka->tytul);
+
+printf("Podaj autora ksiazki: ");
+scanf("%s", ksiazka->autor);
+
+printf("Podaj ilosc stron: ");
+scanf("%d", &ksiazka->strony);
+
+}
+
+void wyswietlenie(struct Book ksiazka){
+printf("\nInformacje o ksiazce: ");
+printf("\ntytul: %s ", ksiazka.tytul);
+printf("\nAutor: %s ", ksiazka.autor);
+printf("\nLiczba stron: %d ", ksiazka.strony);
+}
+
+int main(){
+    struct Book ksiazka;
+    int a;
+    printf("Wybierz operacje, jaka chcesz wykonac\n1. dodanie ksiazki\n2. wyszukanie ksiazki\n3. zakonczenie programu\n");
+    scanf("%d", &a);
+    switch(a){
+    case 1:
+        dodanie(&ksiazka);
+        break;
+    case 2:
+        wyswietlenie(ksiazka);
+        break;
+    case 3:
+        printf("Zakonczyles program");
+        return 0;
+    default:
+        printf("Musisz wybrać jedną z 3 opcji");
+        return 0;
+    }
+return 0;
+}
+
+
+===================================================TABLICE===============================================
+
+#include <stdio.h>
+
+int tablica[5];
+
+int main(){
+    printf("Podaj liczby do tablicy\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Podaj liczbe %d: ", i + 1);
+        scanf("%d", &tablica[i]);
+    }
+    printf("Twoje dane w tablicy");
+    for(int i = 0; i < 5; i++){
+        printf("\n%d. miejsce: %d",i+1,tablica[i]);
+    }
+return 0;
+}
+
+
+#include <stdio.h>
+
+int tablica[5];
+
+int main(){
+printf("Podaj liczby do tablicy\n");
+int max;
+for(int i = 0; i < 5; i++){
+    printf("%d. ",i+1);
+    scanf("%d", &tablica[i]);
+    if (i == 0){
+        max = tablica[i];
+    }
+    else{
+        if(tablica[i] > max){
+            max = tablica[i];
+        }
+    }
+}
+  printf("Twoje dane w tablicy");
+    for(int i = 0; i < 5; i++){
+        printf("\n%d. miejsce: %d",i+1,tablica[i]);
+    }
+    printf("\nNajwiększa liczba w tablicy to: %d", max);
+return 0;
+}
+
+
+
+
+#include <stdio.h>
+
+int tablica[5], temp[5];
+
+int main(){
+printf("Podaj liczby do tablicy\n");
+int suma;
+for(int i = 0; i < 5; i++){
+    printf("%d. ",i+1);
+    scanf("%d", &tablica[i]);
+}
+for(int i = 0; i < 5; i++){
+   temp[i] = tablica[4 - i];
+}
+  printf("Twoje dane w tablicy");
+    for(int i = 0; i < 5; i++){
+        printf("\n%d. miejsce: %d",i+1,temp[i]);
+    }
+return 0;
+}
+
+
+
+
+==============================================zerówka 1=========================================================
+
+
+zad 1 
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void PrintOnce(unsigned int n, int tab[n]){
+    int wypisane[1000] = {0};
+
+    for(int i = 0; i < n; i++){
+    printf("%d. ",i+1);
+    scanf("%d", &tab[i]);
+    }
+
+    printf("Unikalne elementy tablicy: \n");
+    for(int i = 0; i < n; i++){
+        if(wypisane[tab[i]] == 0){
+        printf("%d\n", tab[i]);
+        wypisane[tab[i]] = 1;
+        }
+    }
+}
+
+int main(){
+    unsigned int n;
+
+    printf("Podaj ilosc elementow: ");
+    scanf("%d", &n);
+
+    int tab[n];
+
+    PrintOnce(n, tab);
+
+    return 0;
+}
+
+
+
+=================================================================A11==================================================
+
+Zad 1 
+
+#include <stdio.h>
+#include <string.h>
+
+void minArrays(unsigned int n, int tabA[n], int tabB[n], int tabC[n]){
+
+    printf("Pierwsza tablica: \n");
+    for(int i = 0; i < n; i++){
+        printf("%d. ",i+1);
+        scanf("%d", &tabA[i]);
+    }
+
+    printf("druga tablica: \n");
+    for(int i = 0; i < n; i++){
+        printf("%d. ",i+1);
+        scanf("%d", &tabB[i]);
+    }
+    for(int i = 0; i < n; i++){
+        if(tabA[i] < tabB[i]){
+            tabC[i] = tabA[i];
+        }
+        else{
+            tabC[i] = tabB[i];
+        }
+    }
+
+    printf("Wartosci najmniejsze o tych samych indenksach są rowne");
+    for(int i = 0; i < n; i++){
+        printf("\n%d. %d",i+1, tabC[i]);
+}
+
+}
+
+int main() {
+    int n;
+    printf("napisz ilu elementowe maja byc tablice: ");
+    scanf("%d", &n);
+    int tabA[n], tabB[n], tabC[n];
+    minArrays(n,tabA,tabB,tabC);
+
+    return 0;
+
+}
+
+
+zad 2 
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+int calculate(float (*fun)(float), float x) {
+    int n = (int)x;
+
+    for (int k = 1; k <= n; k++) {
+        if (fun(k) != fun(-k)) {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+
+float fun(float x) {
+    return x * x;
+}
+
+int main() {
+    float x;
+
+    printf("Podaj wartosc x: ");
+    scanf("%f", &x);
+
+    int result = calculate(fun, x);
+
+    printf("Wynik: %d\n", result);
+
+    return 0;
+}
+
+
+
+zadanie 3
